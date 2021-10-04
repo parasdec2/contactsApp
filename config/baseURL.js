@@ -2,7 +2,7 @@ export default [
   "authProviderProvider",
   "dbProviderProvider",
   function (authProviderProvider, dbProviderProvider) {
-    authProviderProvider.setBaseURL("http://localhost:8000/api");
-    dbProviderProvider.setBaseURL("http://localhost:8000/api");
+    authProviderProvider.setBaseURL("https://contacts-server-pg.herokuapp.com/api");
+    dbProviderProvider.setBaseURL("https://contacts-server-pg.herokuapp.com/api");
   },
 ];
