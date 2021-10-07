@@ -1,0 +1,54 @@
+<div class="row" style="height: 500px; margin-top: 100px">
+  <div class="col-4 mx-auto">
+    <form>
+      <div class="">
+        <label for="name" class="form-label">Name</label>
+        <input
+          ng-model="formData.name"
+          type="text"
+          class="form-control"
+          id="name"
+        />
+        <div class="form-text text-danger" ng-show="nameError">
+          Please enter a valid name (name should contain more than 2 characters)
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input
+          ng-model="formData.email"
+          type="email"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+        />
+        <div class="form-text text-danger" ng-show="emailError">
+          Please enter a valid email address
+        </div>
+        <div id="emailHelp" class="form-text">
+          We'll never share your email with anyone else.
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="exampleInputPassword1"
+          ng-model="formData.password"
+        />
+        <div class="form-text text-danger" ng-show="passwordError">
+          Password should contain atleast one lowercase, one uppercase, one
+          number, one special character and should be of minimum 8 characters
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary" ng-click="signup()">
+        Sign Up
+      </button>
+      <br />
+      <h6>Already have an account yet? <a href="#!/login">Sign In</a></h6>
+      <github-login></github-login>
+    </form>
+  </div>
+</div>

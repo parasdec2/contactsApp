@@ -1,0 +1,18 @@
+<h1 class="text-center">Date Time Picker</h1>
+<div ng-show="showDate" class="container">
+  <div class="row">
+    <div class="col-sm-12" align="center">
+      <input type="date" name="date" ng-change="datePicker()" ng-model="date" />
+      <button ng-click="submitDate()">Submit</button>
+    </div>
+  </div>
+</div>
+<div ng-show="showTime" class="container">
+  <div class="row">
+    <div class="col-sm-12" align="center">
+      <input type="time" name="time" ng-change="timePicker()" ng-model="time" />
+      <button ng-click="show()">Submit</button>
+    </div>
+  </div>
+</div>
+<div ng-show="showDateTime">{{dt}}</div>

@@ -1,0 +1,169 @@
+<div class="row">
+  <div class="col-6">
+    <div class="row">
+      <delete-user class="col-6 text-center"></delete-user>
+      <logout class="col-6 text-center"></logout>
+    </div>
+    <br />
+    <table class="table table-dark table-hover col-6">
+      <tbody>
+        <tr>
+          <th scope="row">Name</th>
+          <td>{{user.name}}</td>
+        </tr>
+        <tr>
+          <th scope="row">Email</th>
+          <td>{{user.email}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div ng-show="showEditForm">
+      <div class="row" style="height: 350px; margin-top: 50px">
+        <div class="col-6 mx-auto">
+          <form>
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input
+                ng-model="cName"
+                type="text"
+                class="form-control"
+                id="name"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="name" class="form-label">Phone Number</label>
+              <div class="input-group">
+                <input
+                  type="tel"
+                  class="form-control"
+                  placeholder="9876543210"
+                  ng-model="cMobile"
+                />
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label"
+                >Email address</label
+              >
+              <input
+                ng-model="cEmail"
+                type="email"
+                class="form-control"
+                id="exampleInputEmail1"
+              />
+            </div>
+
+            <button
+              type="submit"
+              class="btn btn-primary"
+              ng-click="updateContact()"
+            >
+              Update Contact
+            </button>
+            <button
+              type="submit"
+              class="btn btn-primary"
+              ng-click="cancelUpdate()"
+            >
+              Cancel
+            </button>
+            <br />
+          </form>
+        </div>
+      </div>
+    </div>
+    <div ng-hide="showEditForm">
+      <div class="row" style="height: 350px; margin-top: 50px">
+        <div class="col-6 mx-auto">
+          <form>
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input
+                ng-model="formData.contact.name"
+                type="text"
+                class="form-control"
+                id="name"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="name" class="form-label">Phone Number</label>
+              <div class="input-group">
+                <input
+                  type="tel"
+                  class="form-control"
+                  placeholder="9876543210"
+                  ng-model="formData.contact.mobile"
+                />
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label"
+                >Email address</label
+              >
+              <input
+                ng-model="formData.contact.email"
+                type="email"
+                class="form-control"
+                id="exampleInputEmail1"
+              />
+            </div>
+
+            <button
+              type="submit"
+              class="btn btn-primary"
+              ng-click="addContact()"
+            >
+              Add Contact
+            </button>
+            <br />
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-6">
+    <div class="text-center">
+      <button
+        type="submit"
+        class="btn btn-primary"
+        ng-click="refreshContacts()"
+      >
+        Refresh Contacts
+      </button>
+    </div>
+
+    <br />
+    <table class="table table-dark table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col" style="cursor: pointer" ng-click="sortBy('name')">
+            <span style="display: block">
+              Name <span ng-class="getSortClass('name')"></span>
+            </span>
+          </th>
+          <th scope="col">Mobile No</th>
+          <th scope="col">Email-ID</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody ng-repeat="contact in allContacts | orderBy:colName:reverseSort">
+        <tr>
+          <th scope="row">{{$index+1}}</th>
+          <td>{{contact.name | uppercase}}</td>
+          <td>{{contact.mobile}}</td>
+          <td>{{contact.email}}</td>
+          <td>
+            <div ng-click="deleteContact(contact._id)">
+              <i class="fas fa-trash"></i>
+            </div>
+            <div ng-click="editContact(contact)">
+              <i class="fas fa-pen"></i>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
