@@ -16,5 +16,9 @@
     "bootstrap": "^5.1.1",
     "firebase": "^9.1.0",
     "oclazyload": "^1.1.0"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1"
   }
 }

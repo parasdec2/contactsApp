@@ -1,4 +1,4 @@
-export default {
+angular.module("app").component("logout", {
   template:
     "<div><button type='submit' class='btn btn-primary'  ng-click='logout()'>Logout</button></div>",
   controller: function ($scope, oAuthProvider) {
@@ -6,4 +6,4 @@ export default {
       oAuthProvider.logOut();
     };
   },
-};
+});

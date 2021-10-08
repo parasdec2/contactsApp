@@ -1,4 +1,4 @@
-export default {
+angular.module("app").component("deleteUser", {
   template:
     "<div><button type='submit' class='btn btn-primary'  ng-click='delete()'>Delete Account</button></div>",
   controller: function ($scope, $rootScope, dbProvider) {
@@ -7,4 +7,4 @@ export default {
         dbProvider.deleteUser($rootScope.user._id);
     };
   },
-};
+});
